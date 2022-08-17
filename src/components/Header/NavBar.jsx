@@ -1,40 +1,37 @@
 import { Link } from "react-router-dom";
-import hamburgerMenu from "../img/hamburger.png";
-import carrito from "../img/carrito.png";
-import styles from "./styles/navbar.module.css";
+import hamburgerMenu from "./img/hamburger.png";
+import CartWidget from "./CartWidget";
 import { useState } from "react";
+import {
+  Header,
+  Logo,
+  Span,
+  HamburgerMenu,
+  ShowHamburgerMenu,
+} from "./stylesNav";
 
 const NavBar = () => {
   const [menuHide, setMenuHide] = useState(false);
 
   return (
-    <header className="w-full h-20 shadow-md">
-      <div className={styles.logo}>
+    <Header>
+      <Logo>
         <Link to="/">Co|Clothes</Link>
-        <span className={styles["span-ecommerce"]}>E-commerce</span>
-      </div>
+        <Span>E-commerce</Span>
+      </Logo>
 
-      <div
-        className={styles["hamburger-menu"]}
+      <HamburgerMenu
         onClick={() => {
           setMenuHide(!menuHide);
         }}
       >
         <img src={hamburgerMenu} />
-      </div>
+      </HamburgerMenu>
 
-      <nav
-        className={
-          menuHide
-            ? styles["show-hamburger-menu"]
-            : styles["hide-hamburger-menu"]
-        }
-      >
-        <div className="absolute top-2 w-20 md:top-0 cursor-pointer md:right-0 md:p-2 hover:rotate-6">
-          <img src={carrito} />
-        </div>
+      <ShowHamburgerMenu menuHide={menuHide}>
+        <CartWidget />
 
-        <ul className="flex justify-center items-center h-full md:h-16 md:w-100">
+        <ul className="flex justify-center items-center h-full md:h-16 md:w-100 bg-white">
           <li className="flex flex-col gap-10 text-center w-full uppercase font-semibold md:flex-row md:gap-3 md:relative md:right-14 md:font-light">
             <Link
               to="/remeras"
@@ -62,8 +59,8 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
-      </nav>
-    </header>
+      </ShowHamburgerMenu>
+    </Header>
   );
 };
 
