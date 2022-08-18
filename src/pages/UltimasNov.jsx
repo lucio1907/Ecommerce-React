@@ -1,4 +1,4 @@
-import ItemListContainer from "../components/Main/ItemListContainer"
+import ItemListContainer from "../components/Main/items/ItemListContainer"
 
 const UltimasNov = () => {
   return (

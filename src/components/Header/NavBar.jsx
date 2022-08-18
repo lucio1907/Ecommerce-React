@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import hamburgerMenu from "./img/hamburger.png";
 import CartWidget from "./CartWidget";
-import { useState } from "react";
 import {
   Header,
   Logo,
@@ -10,8 +9,10 @@ import {
   ShowHamburgerMenu,
 } from "./stylesNav";
 
-const NavBar = () => {
-  const [menuHide, setMenuHide] = useState(false);
+const NavBar = ({ menuHide, setMenuHide }) => {
+  const handleClick = () => {
+    setMenuHide(!menuHide);
+  };
 
   return (
     <Header>
@@ -20,11 +21,7 @@ const NavBar = () => {
         <Span>E-commerce</Span>
       </Logo>
 
-      <HamburgerMenu
-        onClick={() => {
-          setMenuHide(!menuHide);
-        }}
-      >
+      <HamburgerMenu onClick={handleClick}>
         <img src={hamburgerMenu} />
       </HamburgerMenu>
 

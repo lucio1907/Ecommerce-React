@@ -29,7 +29,7 @@ export const Logo = styled.div`
     transition: all .8s ease;
 
     &:hover {
-        transform: scale(1, 1.2);
+        transform: scale(1.10);
     }
 
     @media (min-width: 768px) {
@@ -54,7 +54,7 @@ export const Span = styled.span`
 }
 `
 
-export const HamburgerMenu = styled.nav `
+export const HamburgerMenu = styled.button `
     display: block;
     width: 30px;
     position: absolute;

@@ -1,13 +1,16 @@
-import ItemListContainer from "../components/Main/ItemListContainer"
+import ItemListContainer from "../components/Main/items/ItemListContainer";
+import ItemCount from "../components/Main/items/ItemCount";
 
-const Inicio = () => {
+const Inicio = ({menuHide}) => {
   return (
     <div className="flex justify-center items-center w-full h-screen">
       <section>
-        <ItemListContainer>Sitio en Mantenimiento...</ItemListContainer>
+        <ItemListContainer>
+          <ItemCount stock={5} menuHide={menuHide}/>
+        </ItemListContainer>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Inicio
+export default Inicio;
