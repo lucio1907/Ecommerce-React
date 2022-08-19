@@ -1,20 +1,14 @@
 import { useState } from "react";
 import { ContainerItemCount, ContainerInputs, ButtonAdd } from "../stylesMain";
+import InputItemSum from "./inputs/InputItemSum";
+import InputItemRemove from "./inputs/InputItemRemove";
 
 const ItemCount = ({ stock, menuHide }) => {
   const [count, setCount] = useState(0);
 
-  const totalStock = () => stock > 0 ? stock - count : 0;
+  const totalStock = () => (stock > 0 ? stock - count : 0);
 
-  const checkStock = () => count === stock ? 'Se agotó el stock' : `Stock Disponible: ${totalStock()} u.`;
-
-  const invalidStock = () => stock - count === 0 && true;
-
-  const invalidValue = () => count <= 0 && true;
-
-  const handleClickNegative = () => setCount(count - 1);
-
-  const handleClickPositive = () => setCount(count + 1);
+  const checkStock = () => count === stock ? "Se agotó el stock" : `Stock Disponible: ${totalStock()} u.`;
 
   return (
     <ContainerItemCount className="shadow">
@@ -22,30 +16,18 @@ const ItemCount = ({ stock, menuHide }) => {
         {stock > 0 ? `${checkStock()}` : "Sin Stock"}
       </p>
       <ContainerInputs>
-        <input
-          type="button"
-          value="-"
-          className={`text-3xl cursor-pointer rounded h-10 w-10 ${
-            count <= 0
-              ? "text-gray-400"
-              : "hover:bg-slate-200 text-blue-500 hover:shadow"
-          } ${stock === 0 && "text-gray-400"}`}
-          onClick={handleClickNegative}
-          disabled={invalidValue()}
+        <InputItemRemove
+          value={"-"}
+          count={count}
+          stock={stock}
+          setCount={setCount}
         />
-        <span type="text" className="text-3xl">
-          {count}
-        </span>
-        <input
-          type="button"
-          value="+"
-          className={`text-3xl cursor-pointer rounded h-10 w-10 ${
-            count >= stock
-              ? "text-gray-400"
-              : "hover:bg-slate-200 text-blue-500 hover:shadow"
-          }`}
-          onClick={handleClickPositive}
-          disabled={invalidStock()}
+        <span type="text" className="text-3xl">{count}</span>
+        <InputItemSum
+          value={"+"}
+          count={count}
+          stock={stock}
+          setCount={setCount}
         />
       </ContainerInputs>
       <ButtonAdd count={count} menuHide={menuHide}>
