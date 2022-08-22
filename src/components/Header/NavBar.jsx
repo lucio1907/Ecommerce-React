@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import hamburgerMenu from "./img/hamburger.png";
+import { hamburgerMenu } from "../../img";
 import CartWidget from "./CartWidget";
 import {
   Header,
