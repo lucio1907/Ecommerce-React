@@ -1,30 +1,11 @@
-import { useEffect, useState } from "react";
-import Spinner from "../../services/Spinner";
 import Item from "./Item";
+import useAppContext from "../../../hooks/useAppContext"
 
-const ItemList = () => {
-  const url = "info.json";
-
-  const [item, setItem] = useState([]);
-  const [spinner, setSpinner] = useState(true);
-
-  const fetchJson = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    setItem(data);
-    setSpinner(false);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      fetchJson();
-    }, 2000);
-  }, []);
+const ItemList = ({id}) => {
+  const { item } = useAppContext();
   return (
     <div className="w-full">
-      {spinner && <Spinner />}
-      <Item item={item} />
+      <Item item={item} id={id} />
     </div>
   );
 };

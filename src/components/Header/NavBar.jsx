@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useAppContext from "../../hooks/useAppContext";
 import { hamburgerMenu } from "../../img";
 import CartWidget from "./CartWidget";
 import {
@@ -9,8 +10,10 @@ import {
   ShowHamburgerMenu,
 } from "./stylesNav";
 
-const NavBar = ({ menuHide, setMenuHide }) => {
-  const handleClick = () => {
+const NavBar = () => {
+  const { handleClickCategory, menuHide, setMenuHide } = useAppContext();
+
+  const handleClickMenu = () => {
     setMenuHide(!menuHide);
   };
 
@@ -21,8 +24,8 @@ const NavBar = ({ menuHide, setMenuHide }) => {
         <Span>E-commerce</Span>
       </Logo>
 
-      <HamburgerMenu onClick={handleClick}>
-        <img src={hamburgerMenu} />
+      <HamburgerMenu onClick={handleClickMenu}>
+        <img src={hamburgerMenu} alt="menu"/>
       </HamburgerMenu>
 
       <ShowHamburgerMenu menuHide={menuHide}>
@@ -31,28 +34,40 @@ const NavBar = ({ menuHide, setMenuHide }) => {
         <ul className="flex justify-center items-center h-full md:h-16 md:w-100 bg-white">
           <li className="flex flex-col gap-10 text-center w-full uppercase font-semibold md:flex-row md:gap-3 md:relative md:right-14 md:font-light">
             <Link
-              to="/remeras"
+              to="/category/remeras"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
+              id="1"
+              onClick={handleClickCategory}
+              onClickCapture={handleClickMenu}
             >
               Remeras
             </Link>
             <Link
-              to="/buzos"
+              to="/category/buzos"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
+              id="2"
+              onClick={handleClickCategory}
+              onClickCapture={handleClickMenu}
             >
               Buzos
             </Link>
             <Link
-              to="/zapatillas"
+              to="/category/zapatillas"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
+              id="3"
+              onClick={handleClickCategory}
+              onClickCapture={handleClickMenu}
             >
               Zapatillas
             </Link>
             <Link
-              to="/ultimasnovedades"
+              to="/category/outfits"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
+              id="4"
+              onClick={handleClickCategory}
+              onClickCapture={handleClickMenu}
             >
-              Últimas Novedades
+              Outfits
             </Link>
           </li>
         </ul>

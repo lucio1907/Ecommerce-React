@@ -1,11 +1,11 @@
 import ItemListContainer from "../components/Main/items/ItemListContainer";
-
 const Buzos = () => {
+
   return (
-    <div className="flex justify-center items-center w-full h-screen">
-      <section>
-        <ItemListContainer>Sitio en Mantenimiento...</ItemListContainer>
-      </section>
+    <div className="flex justify-center items-center w-full h-full">
+      <div className="w-full p-6 mt-10 h-full">
+        <ItemListContainer />
+      </div>
     </div>
   );
 };

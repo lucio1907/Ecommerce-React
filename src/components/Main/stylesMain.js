@@ -4,9 +4,21 @@ export const ContainerItemCount = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 87%;
+  height: 20%;
   border-radius: 6px;
+  position: absolute;
+  bottom: -146px;
+  padding-bottom: 20px;
+
+  @media (min-width: 848px) {
+    width: 400px;
+    height: 175px;
+    border-radius: 6px;
+    padding-bottom: 0;
+    position: relative;
+    top: 30px;
+  }
 `;
 
 export const ContainerInputs = styled.div`
@@ -34,31 +46,31 @@ export const ButtonAdd = styled.button`
   }
 `;
 
-
 export const ContainerFatherItem = styled.div`
   width: 100%;
   display: grid;
   grid-template-rows: repeat(1, minmax(0, 1fr));
   justify-items: center;
   margin-top: 8vh;
-  gap: 20px;
+  gap: 40px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 868px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 40px;
   }
 
-  @media (min-width: 1095px) {
+  @media (min-width: 1323px) {
     gap: 0;
+    row-gap: 40px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-`
-
+`;
 
 export const ContainerItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
-  width: calc(320 / 2);
+  width: 90%;
   height: 100%;
   justify-content: center;
   align-items: center;
@@ -73,12 +85,11 @@ export const ContainerItem = styled.div`
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 
   @media (min-width: 600px) {
-    width: 250px;
+    width: 500px;
   }
 
   @media (min-width: 768px) {
-    width: 350px;
-    
+    width: 420px;
   }
 `;
 
@@ -90,17 +101,12 @@ export const ContentImage = styled.img`
   z-index: 1;
 `;
 
-
-export const ContainerDetails = styled.div` 
-  width: 110%;
+export const ContainerDetails = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   z-index: 1;
-
-  @media (min-width: 768px) {
-    width: 100%;
-  }
-`
+`;
 
 export const InputDetail = styled.input`
   width: 100px;
@@ -110,11 +116,10 @@ export const InputDetail = styled.input`
   border-radius: 5px;
   cursor: pointer;
   transition: all 400ms ease;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   z-index: 1;
 
-  
   --tw-shadow: 0 2px 1px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
     0 1px 2px -1px var(--tw-shadow-color);
@@ -122,26 +127,26 @@ export const InputDetail = styled.input`
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 
   &:hover {
-    background-color: #D0D7E4;
+    background-color: #d0d7e4;
   }
 
   @media (min-width: 768px) {
     width: 140px;
   }
-`
+`;
 
-export const PriceDetail = styled.p `
+export const PriceDetail = styled.p`
   padding: 8px;
-  color: ${({stock}) => stock > 0 ? '#008A7B' : 'red'};
+  color: ${({ stock }) => (stock > 0 ? "#008A7B" : "red")};
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   z-index: 1;
-`
+`;
 
 export const TextStock = styled.span`
   font-size: 17px;
-  color: ${({stock}) => stock ? '#00C6B1' : 'red'};
-  font-family: 'Inter', sans-serif;
+  color: ${({ stock }) => (stock ? "#00C6B1" : "red")};
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   white-space: nowrap;
   z-index: 1;
@@ -149,4 +154,20 @@ export const TextStock = styled.span`
   @media (min-width: 768px) {
     margin-top: 15px;
   }
-`
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+
+  @media (min-width: 768px) {
+    height: 400px;
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    &:hover {
+      cursor: move;
+      height: 380px;
+    }
+  }
+`;
