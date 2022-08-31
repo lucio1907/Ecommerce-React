@@ -1,5 +1,3 @@
-import useAppContext from "../../../../hooks/useAppContext";
-import ItemCount from "../ItemCount";
 import {
   ContainerDetail,
   Img,
@@ -7,37 +5,11 @@ import {
   DescriptionParagraph,
   StockAlert,
 } from "./stylesDetailModal";
+import ItemCount from "../ItemCount";
 
-const ItemDetailContainer = ({ itemId }) => {
-  const { item, index, idRoute } = useAppContext();
-  let i = index - 1;
+const ItemDetail = ({ uniqueProduct }) => {
+  const { title, pictureUrl, desc, price, availableSize, stock } = uniqueProduct;
 
-  // Substract 1 from index so that the value is correct
-  itemId = itemId - 1;
-  const product = item.filter((prod) => prod);
-
-  let itemDetail;
-
-  switch (idRoute) {
-    case "remeras":
-      itemDetail = product[i].remeras[itemId];
-      break;
-    case "buzos":
-      itemDetail = product[i].buzos[itemId];
-      break;
-
-    case "zapatillas":
-      itemDetail = product[i].zapatillas[itemId];
-      break;
-
-    case "outfits":
-      itemDetail = product[i].outfits[itemId];
-      break;
-    default:
-      break;
-  }
-
-  const { title, pictureUrl, desc, price, availableSize, stock } = itemDetail;
   return (
     <ContainerDetail>
       <Title>{title}</Title>
@@ -66,4 +38,4 @@ const ItemDetailContainer = ({ itemId }) => {
   );
 };
 
-export default ItemDetailContainer;
+export default ItemDetail;

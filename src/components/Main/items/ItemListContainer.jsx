@@ -1,18 +1,19 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { products } from "../../../mocks/products";
 import ItemList from "./ItemList";
 import Spinner from "../../services/Spinner";
-import useAppContext from "../../../hooks/useAppContext";
 
 const ItemListContainer = () => {
   let { id } = useParams();
 
-  const { item, setItem, setSpinner, spinner, setIdRoute } = useAppContext();
+  const [item, setItem] = useState();
+  const [spinner, setSpinner] = useState(false);
 
   const getProducts = () => new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(products);
+        const productsFilter = products.filter(prod => prod.category === id)
+        resolve(id ? productsFilter : products);
       }, 2000);
     });
 
@@ -24,12 +25,13 @@ const ItemListContainer = () => {
         setItem(product);
       })
       .catch((error) => console.error(error));
-    setIdRoute(id);
   }, [id]);
 
   return (
-    <div className="w-full">
-      {spinner ? <Spinner /> : item && <ItemList id={id} />}
+    <div className="flex justify-center items-center w-full h-full">
+      <div className="w-full p-6 mt-14 h-full">
+        {spinner ? <Spinner /> : item && <ItemList item={item} />}
+      </div>
     </div>
   );
 };

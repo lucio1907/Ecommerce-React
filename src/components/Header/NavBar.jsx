@@ -11,11 +11,7 @@ import {
 } from "./stylesNav";
 
 const NavBar = () => {
-  const { handleClickCategory, menuHide, setMenuHide } = useAppContext();
-
-  const handleClickMenu = () => {
-    setMenuHide(!menuHide);
-  };
+  const { handleClickMenu, menuHide } = useAppContext();
 
   return (
     <Header>
@@ -37,8 +33,7 @@ const NavBar = () => {
               to="/category/remeras"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
               id="1"
-              onClick={handleClickCategory}
-              onClickCapture={handleClickMenu}
+              onClick={handleClickMenu}
             >
               Remeras
             </Link>
@@ -46,8 +41,7 @@ const NavBar = () => {
               to="/category/buzos"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
               id="2"
-              onClick={handleClickCategory}
-              onClickCapture={handleClickMenu}
+              onClick={handleClickMenu}
             >
               Buzos
             </Link>
@@ -55,8 +49,7 @@ const NavBar = () => {
               to="/category/zapatillas"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
               id="3"
-              onClick={handleClickCategory}
-              onClickCapture={handleClickMenu}
+              onClick={handleClickMenu}
             >
               Zapatillas
             </Link>
@@ -64,8 +57,7 @@ const NavBar = () => {
               to="/category/outfits"
               className="hover:bg-slate-200 hover:shadow-md md:rounded md:px-3 md:py-1"
               id="4"
-              onClick={handleClickCategory}
-              onClickCapture={handleClickMenu}
+              onClick={handleClickMenu}
             >
               Outfits
             </Link>

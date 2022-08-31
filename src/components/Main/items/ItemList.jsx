@@ -1,11 +1,10 @@
 import Item from "./Item";
 import useAppContext from "../../../hooks/useAppContext"
 
-const ItemList = ({id}) => {
-  const { item } = useAppContext();
+const ItemList = ({item}) => {
   return (
     <div className="w-full">
-      <Item item={item} id={id} />
+      <Item item={item} />
     </div>
   );
 };

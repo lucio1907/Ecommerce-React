@@ -1,10 +1,7 @@
 import NavBar from "./components/Header/NavBar";
 import Inicio from "./pages/Inicio";
-import Remeras from "./pages/Remeras";
-import Buzos from "./pages/Buzos";
-import Zapatillas from "./pages/Zapatillas";
-import UltimasNov from "./pages/UltimasNov";
-import ModalItemDetail from "./pages/ModalItemDetail";
+import ItemListContainer from "./components/Main/items/ItemListContainer";
+import ItemDetailContainer from "./pages/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context/AppProvider";
 
@@ -15,11 +12,8 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route index element={<Inicio />} />
-          <Route path="/category/:id" element={<Remeras />} />
-          <Route path="/category/:id" element={<Buzos />} />
-          <Route path="/category/:id" element={<Zapatillas />} />
-          <Route path="/category/:id" element={<UltimasNov />} />
-          <Route path="/itemDetails/product/:itemId" element={<ModalItemDetail />} />
+          <Route path="/category/:id" element={<ItemListContainer/>} />
+          <Route path="/itemDetails/product/:itemId" element={<ItemDetailContainer />} />
         </Routes>
       </AppProvider>
     </BrowserRouter>

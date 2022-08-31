@@ -10,17 +10,11 @@ import {
   Img,
 } from "../stylesMain";
 
-const Item = ({ item, id }) => {
-  
-  const {index} = useAppContext();
-
-  let i = index - 1
-
-  const din = item[i][id];
+const Item = ({ item }) => {
 
   return (
     <ContainerFatherItem item={item}>
-      {din !== undefined && din.map((info) => (
+      {item.map((info) => (
         <ContainerItem key={info.id}>
           <h2 className="text-2xl font-medium ">{info.title}</h2>
           <Img src={info.pictureUrl} alt={info.title} />
