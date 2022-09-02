@@ -62,7 +62,6 @@ export const Img = styled.img`
         width: 600px;
         height: 650px;
         border-top: 0px;
-        border-left: 1px solid #000;
     }
 `
 

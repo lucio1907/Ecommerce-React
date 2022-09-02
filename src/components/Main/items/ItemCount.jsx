@@ -10,6 +10,13 @@ const ItemCount = ({ stock, menuHide }) => {
 
   const checkStock = () => count === stock ? "Se agotó el stock" : `Stock Disponible: ${totalStock()} u.`;
 
+  const onAddCart = e => {
+    if (e.target.type === 'submit') {
+      alert(`Agregado al Carrito Correctamente (${count} elementos)`);
+      setCount(0);
+    }
+  }
+
   return (
     <ContainerItemCount className="shadow">
       <p className="text-sm text-center p-4">
@@ -30,7 +37,7 @@ const ItemCount = ({ stock, menuHide }) => {
           setCount={setCount}
         />
       </ContainerInputs>
-      <ButtonAdd count={count} menuHide={menuHide}>
+      <ButtonAdd count={count} menuHide={menuHide} onClick={onAddCart} disabled={count <= 0 && true}>
         Agregar al Carrito
       </ButtonAdd>
     </ContainerItemCount>
