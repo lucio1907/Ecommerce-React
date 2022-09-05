@@ -25,9 +25,10 @@ export const ContainerDetail = styled.div`
 `
 
 export const Title = styled.h1`
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
+    margin-bottom: 15px;
     &::before {
         content: "- ";
     }
@@ -43,6 +44,7 @@ export const Title = styled.h1`
         margin-top: 20px;
         position: relative;
         left: 31px;
+        margin-bottom: 0;
     }
 
     @media (min-width: 768px) {

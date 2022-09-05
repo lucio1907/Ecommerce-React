@@ -75,6 +75,7 @@ export const ContainerGitHub = styled.div`
   position: relative;
   left: 85%;
   top: 25px;
+  width: 37px;
 
   @media (min-width: 768px) {
     left: 96%;
