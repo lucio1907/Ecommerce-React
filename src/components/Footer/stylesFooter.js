@@ -4,7 +4,7 @@ export const ContainerFooter = styled.footer`
   width: 100%;
   height: 200px;
   margin-top: 90px;
-  background-color: #fffdfd;
+  background-color: #FFF;
 `;
 
 export const PhraseContainer = styled.div`
@@ -33,7 +33,7 @@ export const H4 = styled.h4`
 
 export const ContainerSocials = styled.div`
   margin-top: 1.75rem;
-  background-color: #f2f2f2;
+  background-color: #FCFDFD;
   padding: 30px 0;
 
   @media (min-width: 768px) {

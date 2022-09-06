@@ -5,17 +5,15 @@ export const ContainerItemCount = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 87%;
-  height: 20%;
+  height: 19%;
   border-radius: 6px;
   position: absolute;
   bottom: -146px;
-  padding-bottom: 20px;
 
   @media (min-width: 848px) {
     width: 400px;
     height: 175px;
     border-radius: 6px;
-    padding-bottom: 0;
     position: relative;
     top: 30px;
   }

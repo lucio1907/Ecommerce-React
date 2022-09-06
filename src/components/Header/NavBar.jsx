@@ -21,11 +21,13 @@ const NavBar = () => {
       </Logo>
 
       <HamburgerMenu onClick={handleClickMenu}>
-        <img src={hamburgerMenu} alt="menu"/>
+        <img src={hamburgerMenu} alt="menu" />
       </HamburgerMenu>
 
       <ShowHamburgerMenu menuHide={menuHide}>
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
 
         <ul className="flex justify-center items-center h-full md:h-16 md:w-100 bg-white">
           <li className="flex flex-col gap-10 text-center w-full uppercase font-semibold md:flex-row md:gap-3 md:relative md:right-14 md:font-light">

@@ -5,6 +5,7 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [menuHide, setMenuHide] = useState(false);
+  
   const [spinner, setSpinner] = useState(false);
   const [productsHome, setProductsHome] = useState([]);
 
