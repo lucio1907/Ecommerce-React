@@ -10,7 +10,7 @@ const FinishShoppingButton = () => {
         <Link to="/cart">
           <Button>
           <FontAwesomeIcon icon={faCartArrowDown} className="mt-1"/>
-            {'  '}Finalizar Compra
+            {'  '}Ver Carrito
           </Button>
         </Link>
       </ContainerButton>

@@ -9,7 +9,7 @@ import Footer from "../../Footer/Footer";
 const ItemListContainer = () => {
   let { id } = useParams();
 
-  const { spinner, setSpinner } = useAppContext();
+  const { loading, isLoading } = useAppContext();
 
   const [item, setItem] = useState();
 
@@ -22,10 +22,10 @@ const ItemListContainer = () => {
     });
 
   useEffect(() => {
-    setSpinner(true);
+    isLoading(true);
     getProducts()
       .then((product) => {
-        setSpinner(false);
+        isLoading(false);
         setItem(product);
       })
       .catch((error) => console.error(error));
@@ -35,7 +35,7 @@ const ItemListContainer = () => {
     <>
       <div className="flex justify-center items-center w-full h-full">
         <div className="w-full p-6 mt-14 h-full">
-          {spinner ? <Spinner /> : item && <ItemList item={item} />}
+          {loading ? <Spinner /> : item && <ItemList item={item} />}
         </div>
       </div>
       <Footer />

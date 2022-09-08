@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import useAppContext from "../../hooks/useAppContext";
 import { hamburgerMenu } from "../../img";
 import CartWidget from "./CartWidget";
 import {
@@ -11,7 +11,11 @@ import {
 } from "./stylesNav";
 
 const NavBar = () => {
-  const { handleClickMenu, menuHide } = useAppContext();
+  const [menuHide, setMenuHide] = useState(false); 
+
+  const handleClickMenu = () => {
+    setMenuHide(!menuHide);
+  };
 
   return (
     <Header>

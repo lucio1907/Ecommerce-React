@@ -3,10 +3,13 @@ import { ContainerItemCount, ContainerInputs, ButtonAdd } from "../stylesMain";
 import InputItemSum from "./inputs/InputItemSum";
 import InputItemRemove from "./inputs/InputItemRemove";
 import FinishShoppingButton from "./detail/FinishShoppingButton";
+import useAppContext from "../../../hooks/useAppContext";
 
-const ItemCount = ({ stock, menuHide }) => {
-  const [isClick, setIsClick] = useState(true);
+const ItemCount = ({ stock, uniqueProduct }) => {
+  const { onAddCart } = useAppContext();
+
   const [count, setCount] = useState(0);
+  const [isClick, setIsClick] = useState(true);
 
   const totalStock = () => (stock > 0 ? stock - count : 0);
 
@@ -15,13 +18,16 @@ const ItemCount = ({ stock, menuHide }) => {
       ? "Se agotó el stock"
       : `Stock Disponible: ${totalStock()} u.`;
 
-  const onAddCart = (e) => {
+  const hideCounter = (e) => {
     if (e.target.type === "submit") {
+      // This hide the counter
       setIsClick(false);
-      setCount(0);
+      // This show the products in the cart
+      onAddCart(uniqueProduct, count);
       return;
     }
   };
+
   return (
     <>
       {isClick ? (
@@ -48,8 +54,7 @@ const ItemCount = ({ stock, menuHide }) => {
           </ContainerInputs>
           <ButtonAdd
             count={count}
-            menuHide={menuHide}
-            onClick={onAddCart}
+            onClick={hideCounter}
             disabled={count <= 0 && true}
           >
             Agregar al Carrito

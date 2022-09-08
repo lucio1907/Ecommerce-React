@@ -35,8 +35,6 @@ export const ButtonAdd = styled.button`
   opacity: ${({ count }) => (count <= 0 ? ".5" : "1")};
 
   transition: all 300ms ease;
-
-  z-index: ${({ menuHide }) => (menuHide ? "-1" : "1")};
   &:hover {
     border-bottom: ${({ count }) => (count <= 0 ? "" : "0px")};
     background-color: ${({ count }) => (count <= 0 ? "aliceblue" : "#e2e8f0")};

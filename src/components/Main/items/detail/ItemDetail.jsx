@@ -32,7 +32,7 @@ const ItemDetail = ({ uniqueProduct }) => {
         <span className="font-bold text-lg">
           {stock <= 0 ? "" : `$${price}`}
         </span>
-        <ItemCount stock={stock} />
+        <ItemCount stock={stock} uniqueProduct={uniqueProduct} />
       </div>
     </ContainerDetail>
   );

@@ -19,10 +19,10 @@ import {
 import useAppContext from "../../hooks/useAppContext";
 
 const Footer = () => {
-  const { spinner } = useAppContext();
+  const { loading } = useAppContext();
   return (
     <>
-      {!spinner && (
+      {!loading && (
         <ContainerFooter>
           <PhraseContainer>
             <H4>All Around the World</H4>
