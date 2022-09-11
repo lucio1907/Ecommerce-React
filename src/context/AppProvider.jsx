@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../mocks/products"
+import { products } from "../mocks/products";
 
 const AppContext = createContext();
 
@@ -9,35 +9,47 @@ const AppProvider = ({ children }) => {
   const [productsHome, setProductsHome] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
 
-
   const onAddCart = (item, quantity) => {
-    // List products in the cart
-    setCartProducts([...cartProducts, {...item, quantity}]);
-  }
+    if (isInCart(item.id)) {
+      // If product is in the cart, update the quantity
+      cartProducts.filter((item) => (item.quantity += quantity));
+    } else {
+      // List products in the cart
+      setCartProducts([...cartProducts, { ...item, quantity }]);
+    }
+  };
+
+  // Check if products id are the same
+  const isInCart = (id) => cartProducts.find((item) => item.id === id);
 
   const emptyCart = () => {
     setCartProducts([]);
-  }
+  };
+
+  const removeItem = (id) => {
+    const newCart = cartProducts.filter((item) => item.id !== id);
+    setCartProducts(newCart);
+  };
 
   const isLoading = (param) => {
     setLoading(param);
-  }
+  };
 
-   // Promise for home's products
-   const getProductsHome = () => new Promise((resolve, reject) => {
-    resolve(products);
-  })
-
-  // localStorage.setItem('cart', JSON.stringify(cartProducts))
+  // Promise for home's products
+  const getProductsHome = () =>
+    new Promise((resolve, reject) => {
+      resolve(products);
+    });
 
   useEffect(() => {
-    getProductsHome()
-      .then(prod => setProductsHome(prod));
-  }, [])
-  
-  // Get products smaller than 6(number of id)
-  const productsHomeFilter = productsHome.filter(prodsHome => prodsHome.price > 400 && prodsHome.price <= 1000 && prodsHome.stock > 1)
+    getProductsHome().then((prod) => setProductsHome(prod));
+  }, []);
 
+  // Get products smaller than 6(number of id)
+  const productsHomeFilter = productsHome.filter(
+    (prodsHome) =>
+      prodsHome.price > 400 && prodsHome.price <= 1000 && prodsHome.stock > 1
+  );
 
   return (
     <AppContext.Provider
@@ -47,7 +59,8 @@ const AppProvider = ({ children }) => {
         productsHomeFilter,
         onAddCart,
         cartProducts,
-        emptyCart
+        emptyCart,
+        removeItem,
       }}
     >
       {children}

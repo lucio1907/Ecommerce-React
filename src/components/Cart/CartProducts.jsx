@@ -7,7 +7,10 @@ const CartProducts = ({ cartProducts }) => {
   return (
     <div className="h-full relative top-32">
       {cartProducts.map((info) => (
-        <div key={info.id} className="w-full flex flex-col justify-around p-5 gap-5 md:flex-row md:items-center md:whitespace-nowrap md:gap-12 border-b-2">
+        <div
+          key={info.id}
+          className="w-full flex flex-col justify-around p-5 gap-5 md:flex-row md:items-center md:whitespace-nowrap md:gap-12 border-b-2"
+        >
           <div className="flex justify-center">
             <img
               src={info.pictureUrl}
@@ -24,16 +27,16 @@ const CartProducts = ({ cartProducts }) => {
             <P className="text-xl">Precio Final: </P>
             <Span>
               ${info.quantity * info.price}{" "}
-              {`(${info.quantity} X ${info.price})`}
+              {`(${info.quantity} X $${info.price})`}
             </Span>
           </div>
-          <ButtonsCart />
+          <ButtonsCart info={info.id} />
         </div>
       ))}
       <div className="flex flex-col items-center gap-5">
-      <EmptyCartButton />
-      {'- O -'}
-      <ConfirmPurchase />
+        <ConfirmPurchase />
+        {"- O -"}
+        <EmptyCartButton />
       </div>
     </div>
   );

@@ -2,7 +2,13 @@
 
 const ConfirmPurchase = () => {
   return (
-    <div>ConfirmPurchase</div>
+    <div>
+      <button
+        className="border-y-2 border-x-2 border-solid border-black p-3 w-52 hover:bg-black hover:text-white transition-all duration-300 mt-9 font-bold"
+      >
+        Confirmar Compra
+      </button>
+    </div>
   )
 }
 
