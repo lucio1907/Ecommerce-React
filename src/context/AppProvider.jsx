@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
 
   const [productsHome, setProductsHome] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
+  const [inCartAlert, setInCartAlert] = useState(0);
 
   const onAddCart = (item, quantity) => {
     if (isInCart(item.id)) {
@@ -16,6 +17,8 @@ const AppProvider = ({ children }) => {
     } else {
       // List products in the cart
       setCartProducts([...cartProducts, { ...item, quantity }]);
+      // Sum 1 to show in cartWidget.jsx
+      setInCartAlert(inCartAlert + 1);
     }
   };
 
@@ -24,11 +27,21 @@ const AppProvider = ({ children }) => {
 
   const emptyCart = () => {
     setCartProducts([]);
+    setInCartAlert(0);
   };
 
   const removeItem = (id) => {
     const newCart = cartProducts.filter((item) => item.id !== id);
     setCartProducts(newCart);
+    setInCartAlert(inCartAlert - 1)
+  };
+
+  const totalPrice = () => {
+    let acc = 0;
+    for (const item of cartProducts) {
+      acc += item.quantity * item.price;
+    }
+    return acc;
   };
 
   const isLoading = (param) => {
@@ -61,6 +74,8 @@ const AppProvider = ({ children }) => {
         cartProducts,
         emptyCart,
         removeItem,
+        totalPrice,
+        inCartAlert
       }}
     >
       {children}

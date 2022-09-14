@@ -6,8 +6,7 @@ import FinishShoppingButton from "./detail/FinishShoppingButton";
 import useAppContext from "../../../hooks/useAppContext";
 
 const ItemCount = ({ stock, uniqueProduct }) => {
-  const { onAddCart } = useAppContext();
-
+  const { onAddCart, cartProducts } = useAppContext();
   const [count, setCount] = useState(0);
   const [isClick, setIsClick] = useState(true);
 
