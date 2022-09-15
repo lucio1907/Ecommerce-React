@@ -7,8 +7,8 @@ import {
 } from "./stylesDetailModal";
 import ItemCount from "../ItemCount";
 
-const ItemDetail = ({ uniqueProduct }) => {
-  const { title, pictureUrl, desc, price, availableSize, stock } = uniqueProduct;
+const ItemDetail = ({ item }) => {
+  const { title, pictureUrl, desc, price, availableSize, stock } = item;
 
   return (
     <ContainerDetail>
@@ -32,7 +32,7 @@ const ItemDetail = ({ uniqueProduct }) => {
         <span className="font-bold text-lg">
           {stock <= 0 ? "" : `$${price}`}
         </span>
-        <ItemCount stock={stock} uniqueProduct={uniqueProduct} />
+        <ItemCount stock={stock} item={item} />
       </div>
     </ContainerDetail>
   );

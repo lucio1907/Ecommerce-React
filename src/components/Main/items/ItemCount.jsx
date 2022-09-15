@@ -5,8 +5,8 @@ import InputItemRemove from "./inputs/InputItemRemove";
 import FinishShoppingButton from "./detail/FinishShoppingButton";
 import useAppContext from "../../../hooks/useAppContext";
 
-const ItemCount = ({ stock, uniqueProduct }) => {
-  const { onAddCart, cartProducts } = useAppContext();
+const ItemCount = ({ stock, item }) => {
+  const { onAddCart } = useAppContext();
   const [count, setCount] = useState(0);
   const [isClick, setIsClick] = useState(true);
 
@@ -22,7 +22,7 @@ const ItemCount = ({ stock, uniqueProduct }) => {
       // This hide the counter
       setIsClick(false);
       // This show the products in the cart
-      onAddCart(uniqueProduct, count);
+      onAddCart(item, count);
       return;
     }
   };

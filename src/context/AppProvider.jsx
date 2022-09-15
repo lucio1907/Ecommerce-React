@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../mocks/products";
+import { DB } from "../firebase/firebaseconfig";
+import { collection, getDocs } from "firebase/firestore";
 
 const AppContext = createContext();
 
@@ -13,12 +14,21 @@ const AppProvider = ({ children }) => {
   const onAddCart = (item, quantity) => {
     if (isInCart(item.id)) {
       // If product is in the cart, update the quantity
-      cartProducts.filter((item) => (item.quantity += quantity));
+      const newCart = cartProducts.map((inCartItem) => {
+        if (inCartItem.id === item.id) {
+          return { ...item, quantity: inCartItem.quantity += quantity };
+        } else {
+          return inCartItem;
+        }
+      });
+      setCartProducts(newCart);
+      // If is in cart also update the quantity of cart widget alert (small circle red)
+      setInCartAlert(inCartAlert + quantity);
     } else {
       // List products in the cart
       setCartProducts([...cartProducts, { ...item, quantity }]);
       // Sum 1 to show in cartWidget.jsx
-      setInCartAlert(inCartAlert + 1);
+      setInCartAlert(inCartAlert + quantity);
     }
   };
 
@@ -30,10 +40,19 @@ const AppProvider = ({ children }) => {
     setInCartAlert(0);
   };
 
-  const removeItem = (id) => {
+  const removeItem = (id, quantity) => {
     const newCart = cartProducts.filter((item) => item.id !== id);
     setCartProducts(newCart);
-    setInCartAlert(inCartAlert - 1)
+    setInCartAlert(inCartAlert - quantity);
+
+    // Set the value of cart widget if cartProducts is 0
+    // In this case it's in 1 because all the functions in context are async
+    if (cartProducts.length === 1) {
+      setInCartAlert(0);
+      return;
+    } else {
+      return
+    }
   };
 
   const totalPrice = () => {
@@ -49,13 +68,22 @@ const AppProvider = ({ children }) => {
   };
 
   // Promise for home's products
-  const getProductsHome = () =>
-    new Promise((resolve, reject) => {
-      resolve(products);
-    });
-
   useEffect(() => {
-    getProductsHome().then((prod) => setProductsHome(prod));
+    isLoading(true);
+    const productsCollection = collection(DB, "products");
+    getDocs(productsCollection)
+      .then((res) => {
+        const products = res.docs.map((item) => {
+          // Firestore method data()
+          return {
+            id: item.id,
+            ...item.data(),
+          };
+        });
+        setProductsHome(products);
+      })
+      .catch((error) => console.error(error))
+      .finally(() => isLoading(false));
   }, []);
 
   // Get products smaller than 6(number of id)
@@ -75,7 +103,7 @@ const AppProvider = ({ children }) => {
         emptyCart,
         removeItem,
         totalPrice,
-        inCartAlert
+        inCartAlert,
       }}
     >
       {children}

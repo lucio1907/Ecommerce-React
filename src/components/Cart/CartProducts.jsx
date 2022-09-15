@@ -30,7 +30,7 @@ const CartProducts = ({ cartProducts }) => {
               {`(${info.quantity} X $${info.price})`}
             </Span>
           </div>
-          <ButtonsCart info={info.id} />
+          <ButtonsCart id={info.id} quantity={info.quantity} />
         </div>
       ))}
       <div className="flex flex-col items-center gap-5">
