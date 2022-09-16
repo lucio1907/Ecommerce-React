@@ -33,7 +33,7 @@ const CartProducts = ({ cartProducts }) => {
           <ButtonsCart id={info.id} quantity={info.quantity} />
         </div>
       ))}
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col md:flex-row md:w-full md:justify-center items-center gap-5 mt-10 pb-10">
         <ConfirmPurchase />
         {"- O -"}
         <EmptyCartButton />

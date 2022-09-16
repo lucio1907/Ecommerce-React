@@ -15,7 +15,10 @@ const ButtonsCart = ({ id, quantity }) => {
       </button>
 
       <Link to={`/itemDetails/product/${id}`}>
-        <button className="p-3 md:h-14 md:w-44 bg-blue-400 rounded-md text-white shadow hover:bg-blue-500 transition-all duration-300" >
+        <button
+          className="p-3 md:h-14 md:w-44 bg-blue-400 rounded-md text-white shadow hover:bg-blue-500 transition-all duration-300"
+          onClick={() => removeItem(id, quantity)}
+        >
           <LabelButtons>Editar</LabelButtons>
         </button>
       </Link>

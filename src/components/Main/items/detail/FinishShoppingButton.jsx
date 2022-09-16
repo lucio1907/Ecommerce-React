@@ -15,7 +15,7 @@ const FinishShoppingButton = () => {
         </Link>
       </ContainerButton>
       <ContainerButton>
-        <Link to="/">
+        <Link to="/category/remeras">
           <ButtonBack>
           <FontAwesomeIcon icon={faArrowCircleLeft} className="mt-1"/>
             {'  '}Seguir Comprando
