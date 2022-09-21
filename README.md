@@ -1,6 +1,6 @@
-# 🥇 Ecommerce using React JS and Firebase for the Final Project of CoderHouse!.
+# 🥇 Ecommerce using React JS and Firebase for CoderHouse's Final Project!.
 ## 📄 Description: 
-CoClothes is a Ecommerce of Clothes as his name says, in the web you can buy diferents products from T-shirts to complete Outfits.
+CoClothes is a Ecommerce of Clothes as his name says, in the web you can buy diferents products from T-shirts to full Outfits.
 
 The web have 4 sections to navigate, each section have numerous products for buy. What are you waiting for?
 
@@ -9,9 +9,9 @@ When you click confirm purchase, you'll fill out a form to complete the orden an
 This project use this libraries: Styled-Components for styles, Tailwind CSS to complement styled-components, Font Awesome for icons and Sweet Alert for alerts.
 
 ## 👨🏻‍💻 Functionalities:
-1- Button Detail to see the details of a product, using useState(Hook) to control the states of the application.
+1- Button Detail to see the details of a product, using useState(Hook) for control the states of the application.
 
-2- React Router Dom for the routes of application, this library its perfect to prevent the refresh of app when you change between categories also offer us useParams(Hook) for make dynamic routes.
+2- React Router Dom for the routes of application, this library its perfect to prevent the refresh of app when you change between categories, also offer us useParams(Hook) for make dynamic routes.
 
 3- Counter for increase or decrease items in cart.
 
