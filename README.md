@@ -29,10 +29,6 @@ This project use this libraries: Styled-Components for styles, Tailwind CSS to c
 
 10- Context for the logic of the cart.
 
-## 🖥️ Demostration:
-
-![](https://i.imgur.com/3mOgphu.gif)
-
 ## 🌐 Link:
 You can use this in this link : https://ecommerce-react-coder.vercel.app/
 
