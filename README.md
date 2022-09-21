@@ -1,4 +1,4 @@
-# 🥇 Ecommerce using React JS and Firebase to the Final Project of CoderHouse!.
+# 🥇 Ecommerce using React JS and Firebase for the Final Project of CoderHouse!.
 ## 📄 Description: 
 CoClothes is a Ecommerce of Clothes as his name says, in the web you can choose diferents products in diferents sections and you can add to cart for then buy that product.
 
