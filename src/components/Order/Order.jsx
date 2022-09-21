@@ -2,7 +2,7 @@ import { faHouseUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import { ButtonBack } from "../Main/items/detail/stylesFinishButton";
-import { ContainerFather, MyUser, OrderContainer } from "./stylesOrder";
+import { ContainerFather, MyUser, MyUser2, OrderContainer } from "./stylesOrder";
 
 const Order = ({ userOrder, orderId }) => {
   return (
@@ -15,25 +15,25 @@ const Order = ({ userOrder, orderId }) => {
       </p>
       <OrderContainer>
         <MyUser>
-          <span className="md:text-2xl">Nombre:</span> {userOrder.buyer.name}
+          <span className="md:text-2xl uppercase">Nombre:</span> {userOrder.buyer.name}
         </MyUser>
         <MyUser>
-          <span className="md:text-2xl">Email:</span> {userOrder.buyer.email}
+          <span className="md:text-2xl uppercase">Email:</span> {userOrder.buyer.email}
         </MyUser>
         <MyUser>
-          <span className="md:text-2xl">Número:</span> {userOrder.buyer.number}
+          <span className="md:text-2xl uppercase">Número:</span> {userOrder.buyer.number}
         </MyUser>
         <MyUser>
-          <span className="md:text-2xl">Ciudad:</span> {userOrder.buyer.city}
+          <span className="md:text-2xl uppercase">Ciudad:</span> {userOrder.buyer.city}
         </MyUser>
         <MyUser>
-          <span className="md:text-2xl">Domicilio:</span> {userOrder.buyer.home}
+          <span className="md:text-2xl uppercase">Domicilio:</span> {userOrder.buyer.home}
         </MyUser>
         <MyUser>
-          <span className="md:text-2xl">Código de seguimiento:</span> {orderId}
+          <span className="md:text-2xl uppercase">Código de seguimiento:</span> {orderId}
         </MyUser>
-        <MyUser>
-          <span className="md:text-2xl">Productos:</span>{" "}
+        <MyUser2>
+          <span className="md:text-2xl uppercase">Productos:</span>{" "}
           <ul>
             {userOrder.items.map((item) => (
               <li key={item.id} className="whitespace-nowrap">
@@ -41,7 +41,7 @@ const Order = ({ userOrder, orderId }) => {
               </li>
             ))}
           </ul>
-        </MyUser>
+        </MyUser2>
       </OrderContainer>
       <div className="w-full flex justify-center mt-5 py-3">
         <NavLink to="/">

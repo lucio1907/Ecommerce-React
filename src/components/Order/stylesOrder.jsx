@@ -33,4 +33,20 @@ export const MyUser = styled.p`
     margin-bottom: 20px;
     border-bottom: 1px solid #faf0f0;
     padding: 20px;
+
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
+`
+
+export const MyUser2 = styled.div`
+    font-family: 'inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #faf0f0;
+    padding: 20px;
+
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
 `

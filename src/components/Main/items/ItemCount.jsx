@@ -4,6 +4,7 @@ import InputItemSum from "./inputs/InputItemSum";
 import InputItemRemove from "./inputs/InputItemRemove";
 import FinishShoppingButton from "./detail/FinishShoppingButton";
 import useAppContext from "../../../hooks/useAppContext";
+import Swal from "sweetalert2";
 
 const ItemCount = ({ stock, item }) => {
   const { onAddCart } = useAppContext();
@@ -23,6 +24,19 @@ const ItemCount = ({ stock, item }) => {
       setIsClick(false);
       // This show the products in the cart
       onAddCart(item, count);
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Producto agregado al carrito!'
+      })
       return;
     }
   };

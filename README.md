@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# 🥇 Ecommerce using React JS and Firebase for the Final Project of CoderHouse!.
+## 📄 Description: 
+CoClothes is a Ecommerce of Clothes as his name says, in the web you can buy diferents products from T-shirts to complete Outfits.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The web have 4 sections to navigate, each section have numerous products for buy. What are you waiting for?
 
-## Available Scripts
+When you click confirm purchase, you'll fill out a form to complete the orden and you'll get an order code.
 
-In the project directory, you can run:
+This project use this libraries: Styled-Components for styles, Tailwind CSS to complement styled-components, Font Awesome for icons and Sweet Alert for alerts.
 
-### `npm start`
+## 👨🏻‍💻 Functionalities:
+1- Button Detail to see the details of a product, using useState(Hook) to control the states of the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2- React Router Dom for the routes of application, this library its perfect to prevent the refresh of app when you change between categories also offer us useParams(Hook) for make dynamic routes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3- Counter for increase or decrease items in cart.
 
-### `npm test`
+4- Functions for sum prices and stocks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5- Button for delete a unique product.
 
-### `npm run build`
+6- Button for edit a product.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7- Button for empty the cart.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8- Firebase methods to extract the information like name products, images, prices, etc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+9- Loaders while the information isn't ready.
 
-### `npm run eject`
+10- Context for the logic of the cart.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🖥️ Demostration:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](https://i.imgur.com/3mOgphu.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🌐 Link:
+You can use this in this link : https://ecommerce-react-coder.vercel.app/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-If you are developer use in your bash console "git clone https://github.com/lucio1907/Ecommerce-React.git" to clone the app.
 
-## Learn More
+-Then change to the folder that you cloned the project and execute in your terminal "npm install", to install the dependencies that the project need.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-Finally "npm start" for run in "LocalHost:3000".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ❓ Help:
+If you need help, you can find me on Linkedin (https://www.linkedin.com/in/luciogastellu/).
 
-### Code Splitting
+Also you can send me an email to lugastellu19@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🙋🏻‍♂️ Author: Lucio Gastellu Arrieta
